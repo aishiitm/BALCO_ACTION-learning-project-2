@@ -14,10 +14,10 @@ prop_varex[1:6]
 plot(prop_varex, xlab = "Principal Component",
        ylab = "Proportion of Variance Explained",
        type = "b")
-#pca_scores_Three_month<-Pca_Three_month$x
+pca_scores_Three_month<-Pca_Three_month$x
 Pca_Three_month_data<-as.data.frame(Pca_Three_month$rotation)
-#Pca_Three_month_scores<-as.data.frame(pca_scores_Three_month, row.names=TRUE)
+Pca_Three_month_scores<-as.data.frame(pca_scores_Three_month, row.names=TRUE)
 write.csv(file="Pca_Three_month_data_less_than_8.csv",Pca_Three_month_data,row.names = TRUE)
-#write.csv(file="Pca_scores_Three_month_greater_than_15.csv",Pca_Three_month_scores,row.names=c(Three_month_data$Potno))
-#lm_model_pca <- lm(wb$Standard.deviation.of.bath.temp ~ pca_scores[,1:4])
-#summary(lm_model_pca)
+write.csv(file="Pca_scores_Three_month_greater_than_15.csv",Pca_Three_month_scores,row.names=c(Three_month_data$Potno))
+lm_model_pca <- lm(wb$Standard.deviation.of.bath.temp ~ pca_scores[,1:4])
+summary(lm_model_pca)
